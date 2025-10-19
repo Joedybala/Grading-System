@@ -1,0 +1,75 @@
+
+package com.mycompany.bukotocompgradingsystem;
+import java.util.Scanner;
+
+public class ModifiedForFive {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        int count = 1; // Tracking number of students
+        int[] gradeCount = new int[10]; // this is the array index 1–9 to count how many got each grade
+
+        System.out.println("=== Bukoto Comprehensive School MOCK Exam Grading System ===\n");
+
+        
+        while (count <= 5) {
+            System.out.print("Enter score for student " + count + " out of 100: ");
+            int score = input.nextInt();
+
+            int grade;
+            String remark;
+
+            // for Determining grade and remarks
+            if (score >= 80 && score <= 100) {
+                grade = 1;
+                remark = "Distinction";
+            } else if (score >= 75 && score <= 79) {
+                grade = 2;
+                remark = "Distinction";
+            } else if (score >= 66 && score <= 74) {
+                grade = 3;
+                remark = "Credit";
+            } else if (score >= 60 && score <= 65) {
+                grade = 4;
+                remark = "Credit";
+            } else if (score >= 50 && score <= 59) {
+                grade = 5;
+                remark = "Credit";
+            } else if (score >= 45 && score <= 49) {
+                grade = 6;
+                remark = "Credit";
+            } else if (score >= 35 && score <= 44) {
+                grade = 7;
+                remark = "Pass";
+            } else if (score >= 30 && score <= 34) {
+                grade = 8;
+                remark = "Pass";
+            } else if (score >= 0 && score <= 29) {
+                grade = 9;
+                remark = "Fail";
+            } else {
+                System.out.println("Invalid score! Please enter a value between 0 and 100.\n");
+                continue; 
+            }
+
+            // to Display results for the current student
+            System.out.println("\n--- Results for Student " + count + " ---");
+            System.out.println("Score  : " + score);
+            System.out.println("Grade  : " + grade);
+            System.out.println("Remark : " + remark);
+            System.out.println("------------------------------\n");
+
+            
+            gradeCount[grade]++;
+
+            count++; 
+        }
+
+        // Tis is for displaying summary after all entries
+        System.out.println("=== Summary of Grades (1 to 9) ===");
+        for (int g = 1; g <= 9; g++) {
+            System.out.println("Grade " + g + " : " + gradeCount[g] + " student(s)");
+        }
+        System.out.println("\nAll five students have been processed successfully!");
+    }
+}
